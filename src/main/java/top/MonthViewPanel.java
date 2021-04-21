@@ -20,20 +20,14 @@ public class MonthViewPanel extends javax.swing.JPanel {
      */
     public MonthViewPanel() {
         initComponents();
-        GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        dayPanel2 = new top.DayPanel(LocalDate.now(), 4);
-        
-        dayPanel2.doLayout();
-        dayPanel2.validate();
-        dayPanel2.repaint();
-        validate();
-        repaint();
-        doLayout();
+//        GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+//        gridBagConstraints.gridx = 2;
+//        gridBagConstraints.gridy = 1;
+//        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+//        gridBagConstraints.weightx = 1.0;
+//        gridBagConstraints.weighty = 1.0;
+//        dayPanel2 = new top.DayPanel(LocalDate.now(), 4);
+        dayPanel2.setText("5", "15");
     }
     
     /**

@@ -30,6 +30,11 @@ public class DayPanel extends javax.swing.JPanel {
         label1.setText(Integer.toString(eventCount));
     }
     
+    public void setText(String date, String count)
+    {
+        DateNum.setText(date);
+        label1.setText(count);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
