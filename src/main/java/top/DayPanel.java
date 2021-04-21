@@ -25,8 +25,8 @@ public class DayPanel extends javax.swing.JPanel {
      * @param now
      */
     public DayPanel(LocalDate now) {
+        selectedDay = now;
         initComponents();
-        DateNum.setText(Integer.toString(now.getDayOfMonth()));
     }
     
     /**
@@ -39,13 +39,12 @@ public class DayPanel extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         jPanel1 = new javax.swing.JPanel();
         DateNum = new java.awt.Label();
         label1 = new java.awt.Label();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
 
-        setLayout(new java.awt.CardLayout());
-        add(filler1, "card4");
+        setLayout(new java.awt.GridLayout(3, 1));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
@@ -59,13 +58,25 @@ public class DayPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         jPanel1.add(DateNum, gridBagConstraints);
 
+        add(jPanel1);
+
         label1.setAlignment(java.awt.Label.CENTER);
         label1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label1.setText("label1");
-        jPanel1.add(label1, new java.awt.GridBagConstraints());
-
-        add(jPanel1, "card2");
+        label1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                label1PropertyChange(evt);
+            }
+        });
+        add(label1);
+        add(filler1);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void label1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_label1PropertyChange
+        // TODO add your handling code here:
+        validate();
+        repaint();
+    }//GEN-LAST:event_label1PropertyChange
 
     //private ArrayList<Activity> date;
     // date.indexOf(Activity.getDate() == selectedDay);
