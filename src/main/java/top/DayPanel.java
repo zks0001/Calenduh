@@ -24,9 +24,10 @@ public class DayPanel extends javax.swing.JPanel {
      * Creates new form Day
      * @param now
      */
-    public DayPanel(LocalDate now) {
-        selectedDay = now;
+    public DayPanel(LocalDate now, Integer eventCount) {
         initComponents();
+        DateNum.setText(Integer.toString(now.getDayOfMonth()));
+        label1.setText(Integer.toString(eventCount));
     }
     
     /**

@@ -26,12 +26,14 @@ public class MonthViewPanel extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        dayPanel2 = new top.DayPanel(LocalDate.now());
+        dayPanel2 = new top.DayPanel(LocalDate.now(), 4);
         
+        dayPanel2.doLayout();
         dayPanel2.validate();
         dayPanel2.repaint();
         validate();
         repaint();
+        doLayout();
     }
     
     /**
