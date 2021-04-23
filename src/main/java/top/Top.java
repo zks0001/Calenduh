@@ -38,11 +38,13 @@ public class Top extends javax.swing.JFrame {
         monthViewPanel1 = new top.MonthViewPanel();
         jPanel2 = new javax.swing.JPanel();
         weekViewPanel1 = new top.WeekViewPanel();
+        itenerary1 = new top.Itenerary();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
         jPanel3.add(inputView1, new java.awt.GridBagConstraints());
@@ -59,11 +61,19 @@ public class Top extends javax.swing.JFrame {
         jTabbedPane2.addTab("Month", jPanel1);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
-        jPanel2.add(weekViewPanel1, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        jPanel2.add(weekViewPanel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        jPanel2.add(itenerary1, gridBagConstraints);
 
         jTabbedPane2.addTab("Week", jPanel2);
 
-        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jTabbedPane2, "card2");
         jTabbedPane2.getAccessibleContext().setAccessibleName("Month");
 
         jMenu1.setText("File");
@@ -115,6 +125,7 @@ public class Top extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private top.InputView inputView1;
+    private top.Itenerary itenerary1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
