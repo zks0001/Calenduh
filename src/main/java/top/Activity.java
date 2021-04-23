@@ -10,7 +10,7 @@ import java.io.Serializable;
 import static java.time.temporal.ChronoUnit.MINUTES;
 /**
  *
- * @author Benjamin Jones
+ * @author Benjamin Jones and me too
  */
 public class Activity implements Serializable{
     protected LocalTime startTime;
