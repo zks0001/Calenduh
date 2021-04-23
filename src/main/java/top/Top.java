@@ -113,6 +113,7 @@ public class Top extends javax.swing.JFrame {
                 new Top().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

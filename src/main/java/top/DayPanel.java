@@ -35,6 +35,14 @@ public class DayPanel extends javax.swing.JPanel {
         DateNum.setText(date);
         label1.setText(count);
     }
+    
+//    protected void updateDate(LocalDate day)
+//    {
+//        
+//    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
