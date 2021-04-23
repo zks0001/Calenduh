@@ -14,8 +14,9 @@ import java.time.*;
 public class Day 
 {
     protected LocalDate date;
-    protected int arrSize = 0;
+    public int arrSize = 0;
     public ArrayList activityList = new ArrayList<Activity>();
+    public Boolean hasContent = false;
     
     public Day(LocalDate date_)
     {
@@ -26,12 +27,17 @@ public class Day
     {
         activityList.add(a);
         arrSize = arrSize + 1;
+        hasContent = true;
     }
     
     public void Remove(Activity a)
     {
         activityList.remove(a);
         arrSize = arrSize - 1;
+        if (activityList.isEmpty())
+        {
+            hasContent = false;
+        }
     }
     
 }
