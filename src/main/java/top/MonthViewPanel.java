@@ -64,17 +64,18 @@ public class MonthViewPanel extends javax.swing.JPanel {
         }
     }
     
-    protected void offset(Integer off)
-    {
-        for (int i = 0; i < 35; i++)
-            if (i < off)
-            {
-                days.get(i).setBackground(Color.gray);
-                days.get(i).setText("", "");
-            }
-            else 
-                days.get(i).setText(Integer.toString((i-off)), "eventNum");
-    }
+//    protected void offset(Integer off)
+//    {
+//        for (int i = 0; i < 35; i++)
+//            if (i < off)
+//            {
+//                days.get(i).setBackground(Color.gray);
+//                days.get(i).setText("", "");
+//            }
+//            //else if (i > )
+//            else 
+//                days.get(i).setText(Integer.toString((i-off+1)), "eventNum");
+//    }
     
     protected void feed(Month obj)
     {
@@ -85,8 +86,13 @@ public class MonthViewPanel extends javax.swing.JPanel {
                 days.get(i).setBackground(Color.gray);
                 days.get(i).setText("", "");
             }
+            else if (i-obj.off() +1 > obj.getLength())
+            {
+                days.get(i).setBackground(Color.gray);
+                days.get(i).setText("", "");
+            }
             else 
-                days.get(i).setText(Integer.toString((i-obj.off())), "test");
+                days.get(i).setText(Integer.toString((i-obj.off())+1), "test");
     }
     
     private ArrayList<DayPanel> days;

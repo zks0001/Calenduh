@@ -41,4 +41,9 @@ public class Month {
     {
         return offset;
     }
+    
+    public int getLength()
+    {
+        return length;
+    }
 }
