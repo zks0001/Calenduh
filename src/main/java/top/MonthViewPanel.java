@@ -5,8 +5,6 @@
  */
 package top;
 
-import backend.Activity;
-import backend.Month;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
