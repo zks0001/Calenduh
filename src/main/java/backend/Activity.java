@@ -19,6 +19,7 @@ public class Activity implements Serializable{
     protected String location;
     protected String extraInfo;
     protected long duration;
+    protected String name;
     
     public Activity()
     {
@@ -38,14 +39,15 @@ public class Activity implements Serializable{
     	extraInfo = extraInfo_;
     }
     
-    public Activity(LocalTime startTime_, LocalTime stopTime_, LocalDate date_, String location_, String extraInfo_)
+    public Activity(LocalTime startTime_, LocalTime stopTime_, LocalDate date_, String location_, String extraInfo_, String name_, long duration_)
     {
     	startTime = startTime_;
         stopTime = stopTime_;
     	date = date_;
     	location = location_;
     	extraInfo = extraInfo_;
-        duration = startTime.until(stopTime, MINUTES);
+        duration = duration_; //startTime.until(stopTime, MINUTES);
+        name = name_;
     }
     
     public Activity(LocalTime startTime_, LocalDate date_, String location_, String extraInfo_, long duration_)
