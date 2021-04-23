@@ -1,4 +1,4 @@
-package com.mycompany.cs.project.main;
+package backend;
 
 
 /*

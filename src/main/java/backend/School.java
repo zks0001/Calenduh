@@ -1,4 +1,4 @@
-package com.mycompany.cs.project.main;
+package backend;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
