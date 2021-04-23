@@ -30,14 +30,12 @@ public class Top extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        monthViewPanel2 = new top.MonthViewPanel();
         jPanel2 = new javax.swing.JPanel();
-        weekViewPanel1 = new top.WeekViewPanel();
-        block1 = new top.Block();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -45,30 +43,15 @@ public class Top extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        jPanel1.add(monthViewPanel2, gridBagConstraints);
-
-        jTabbedPane2.addTab("tab1", jPanel1);
+        jTabbedPane2.addTab("Month", jPanel1);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        jPanel2.add(weekViewPanel1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        jPanel2.add(block1, gridBagConstraints);
+        jTabbedPane2.addTab("Week", jPanel2);
 
-        jTabbedPane2.addTab("tab2", jPanel2);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/top/tenor (1).gif"))); // NOI18N
+        jPanel3.add(jLabel1);
+
+        jTabbedPane2.addTab(";)", jPanel3);
 
         getContentPane().add(jTabbedPane2, java.awt.BorderLayout.CENTER);
         jTabbedPane2.getAccessibleContext().setAccessibleName("Month");
@@ -121,14 +104,13 @@ public class Top extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private top.Block block1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private top.MonthViewPanel monthViewPanel2;
-    private top.WeekViewPanel weekViewPanel1;
     // End of variables declaration//GEN-END:variables
 }
