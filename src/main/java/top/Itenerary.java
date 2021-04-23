@@ -31,7 +31,7 @@ public class Itenerary extends javax.swing.JPanel {
         for (int i = 0; i < Today.size(); i++)
         {
             Activity temp = Today.get(i);
-            String tstring = temp.getStartTime().toString() + temp.getStopTime().toString();
+            String tstring = temp.getStartTime().toString() + " - " + temp.getStopTime().toString();
             
             event_details.add(temp.getExtraInfo());
             event_details.add(tstring);
