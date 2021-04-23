@@ -32,14 +32,22 @@ public class Top extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        inputView1 = new top.InputView();
         jPanel1 = new javax.swing.JPanel();
         monthViewPanel1 = new top.MonthViewPanel();
         jPanel2 = new javax.swing.JPanel();
+        weekViewPanel1 = new top.WeekViewPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+        jPanel3.add(inputView1, new java.awt.GridBagConstraints());
+
+        jTabbedPane2.addTab("Add Event", jPanel3);
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -51,9 +59,11 @@ public class Top extends javax.swing.JFrame {
         jTabbedPane2.addTab("Month", jPanel1);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
+        jPanel2.add(weekViewPanel1, new java.awt.GridBagConstraints());
+
         jTabbedPane2.addTab("Week", jPanel2);
 
-        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.PAGE_START);
         jTabbedPane2.getAccessibleContext().setAccessibleName("Month");
 
         jMenu1.setText("File");
@@ -104,12 +114,15 @@ public class Top extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private top.InputView inputView1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private top.MonthViewPanel monthViewPanel1;
+    private top.WeekViewPanel weekViewPanel1;
     // End of variables declaration//GEN-END:variables
 }
