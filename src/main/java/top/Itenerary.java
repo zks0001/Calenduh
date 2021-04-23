@@ -5,10 +5,11 @@
  */
 package top;
 import backend.*;
+import java.util.List;
 import java.util.ArrayList;
 import javax.swing.Box.*;
 import java.awt.Dimension;
-
+import java.time.*;
 
 /**
  *
@@ -25,12 +26,36 @@ public class Itenerary extends javax.swing.JPanel {
     
     public Itenerary(ArrayList<Activity> Today) {
         initComponents();
-
+    
+        List<String> event_details = new ArrayList<String>();
+        
         for (int i = 0; i < Today.size(); i++)
+        {
+            Activity temp = Today.get(i);
+            String tstring = temp.getStartTime().toString() + temp.getStopTime().toString();
+            
+            event_details.add(temp.getExtraInfo());
+            event_details.add(tstring);
+            
+        }
+        
+        
+        
+        Object[][] table_list = new Object[Today.size()][Today.size()];
+        for (int r = 0; r < table_list.length; r++) 
+        {
+            for (int c = 0; c < table_list[r].length; c++)
             {
-                Activity temp = Today.get(i);
-                temp.getDuration();
+                table_list[r][c] = event_details.get(c);
             }
+            
+        
+        
+            
+        }
+        
+        
+        
     }
     
     
@@ -64,22 +89,6 @@ public class Itenerary extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
                 {null, null},
                 {null, null},
                 {null, null},
