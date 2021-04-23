@@ -17,7 +17,7 @@ import java.time.*;
 public class Itenerary extends javax.swing.JPanel {
 
     /**
-     * Creates new form Itenerary
+     * Creates new form Itinerary
      */
     public Itenerary() {
         initComponents();
@@ -40,6 +40,7 @@ public class Itenerary extends javax.swing.JPanel {
         
         
         
+        
         Object[][] table_list = new Object[Today.size()][Today.size()];
         for (int r = 0; r < table_list.length; r++) 
         {
@@ -47,14 +48,14 @@ public class Itenerary extends javax.swing.JPanel {
             {
                 table_list[r][c] = event_details.get(c);
             }
-            
-        
-        
-            
         }
         
-        
-        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            table_list,
+            new String [] {
+                "Time", "Event"
+            }
+        ));
     }
     
     
