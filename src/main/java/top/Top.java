@@ -35,8 +35,6 @@ public class Top extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         monthViewPanel1 = new top.MonthViewPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -54,11 +52,6 @@ public class Top extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
         jTabbedPane2.addTab("Week", jPanel2);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/top/tenor (1).gif"))); // NOI18N
-        jPanel3.add(jLabel1);
-
-        jTabbedPane2.addTab(";)", jPanel3);
 
         getContentPane().add(jTabbedPane2, java.awt.BorderLayout.CENTER);
         jTabbedPane2.getAccessibleContext().setAccessibleName("Month");
@@ -111,13 +104,11 @@ public class Top extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private top.MonthViewPanel monthViewPanel1;
     // End of variables declaration//GEN-END:variables
