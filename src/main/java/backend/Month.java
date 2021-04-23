@@ -16,7 +16,7 @@ public class Month {
     protected YearMonth when;           
     protected Integer length;
     protected Integer offset;
-    public ArrayList Days = new ArrayList<Activity>();; 
+    public ArrayList Days = new ArrayList<Day>();
             
             
     public Month(YearMonth when_)
