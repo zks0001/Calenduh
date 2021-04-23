@@ -6,6 +6,7 @@
 package top;
 
 import backend.Activity;
+import backend.Month;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -75,9 +76,17 @@ public class MonthViewPanel extends javax.swing.JPanel {
                 days.get(i).setText(Integer.toString((i-off)), "eventNum");
     }
     
-    protected void reset()
+    protected void feed(Month obj)
     {
-        
+        obj.off();
+        for (int i = 0; i < 35; i++)
+            if (i < obj.off())
+            {
+                days.get(i).setBackground(Color.gray);
+                days.get(i).setText("", "");
+            }
+            else 
+                days.get(i).setText(Integer.toString((i-obj.off())), "test");
     }
     
     private ArrayList<DayPanel> days;

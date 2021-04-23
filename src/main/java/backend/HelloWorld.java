@@ -154,7 +154,7 @@ public class HelloWorld {
 		
 		sorted.sort((o1, o2) -> {
 			if (o1.getDate().compareTo(o2.getDate()) == 0) {
-				return o1.getTime().compareTo(o2.getTime());
+				return o1.getStartTime().compareTo(o2.getStartTime());
 			}
 			return o1.getDate().compareTo(o2.getDate());
 			
@@ -192,7 +192,7 @@ public class HelloWorld {
 	
 	public static void printDaSchool(School activity)
 	{
-		System.out.println(activity.getTime());
+		System.out.println(activity.getStartTime());
 		System.out.println(activity.getDate());
 		System.out.println(activity.getLocation());
 		System.out.println(activity.getExtraInfo());
@@ -211,7 +211,7 @@ public class HelloWorld {
 	
 	public static void printDaWorkout(Workout activity)
 	{
-		System.out.println(activity.getTime());
+		System.out.println(activity.getStartTime());
 		System.out.println(activity.getDate());
 		System.out.println(activity.getLocation());
 		System.out.println(activity.getExtraInfo());
@@ -226,7 +226,7 @@ public class HelloWorld {
 	
 	public static void printDaActivity(Activity activity)
 	{
-		System.out.println(activity.getTime());
+		System.out.println(activity.getStartTime());
 		System.out.println(activity.getDate());
 		System.out.println(activity.getLocation());
 		System.out.println(activity.getExtraInfo());

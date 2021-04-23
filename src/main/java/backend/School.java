@@ -16,7 +16,7 @@ public class School extends Activity {
     
     public School()
     {
-    	time = null;
+    	startTime = null;
     	date = null;
     	location = "";
     	extraInfo = "";
@@ -28,7 +28,7 @@ public class School extends Activity {
 
     public School(LocalTime time_, LocalDate date_, String location_, String course_, float grade_, int hours_, String[] assignments_)
     {
-    	time = time_;
+    	startTime = time_;
     	date = date_;
     	location = location_;
     	extraInfo = "school";

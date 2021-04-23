@@ -36,4 +36,9 @@ public class Month {
     {
         Days.remove(obj);
     }
+    
+    public int off()
+    {
+        return offset;
+    }
 }

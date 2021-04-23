@@ -22,7 +22,7 @@ public class Workout extends Activity {
     {
     	muscles = null;
     	calories = 0;
-    	time = null;
+    	startTime = null;
     	date = null;
     	location = "";
     	extraInfo = "";
@@ -30,7 +30,7 @@ public class Workout extends Activity {
 
     public Workout(LocalTime time_, LocalDate date_, String location_, String[] muscles_, int calories_)
     {
-    	time = time_;
+    	startTime = time_;
     	date = date_;
     	location = location_;
     	extraInfo = "workout";

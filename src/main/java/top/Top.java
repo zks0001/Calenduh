@@ -5,6 +5,9 @@
  */
 package top;
 
+import backend.Month;
+import java.time.YearMonth;
+
 /**
  *
  * @author dudes
@@ -16,6 +19,7 @@ public class Top extends javax.swing.JFrame {
      */
     public Top() {
         initComponents();
+        this.monthViewPanel2.feed(new Month(YearMonth.now()));
     }
 
     /**
