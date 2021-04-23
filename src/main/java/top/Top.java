@@ -19,7 +19,7 @@ public class Top extends javax.swing.JFrame {
      */
     public Top() {
         initComponents();
-        this.monthViewPanel2.feed(new Month(YearMonth.now()));
+        this.monthViewPanel1.feed(new Month(YearMonth.now()));
     }
 
     /**
@@ -30,9 +30,11 @@ public class Top extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        monthViewPanel1 = new top.MonthViewPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -43,6 +45,12 @@ public class Top extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel1.add(monthViewPanel1, gridBagConstraints);
+
         jTabbedPane2.addTab("Month", jPanel1);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
@@ -112,5 +120,6 @@ public class Top extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private top.MonthViewPanel monthViewPanel1;
     // End of variables declaration//GEN-END:variables
 }
