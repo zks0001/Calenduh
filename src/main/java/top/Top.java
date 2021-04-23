@@ -32,16 +32,24 @@ public class Top extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        inputView1 = new top.InputView();
         jPanel1 = new javax.swing.JPanel();
         monthViewPanel1 = new top.MonthViewPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        weekViewPanel1 = new top.WeekViewPanel();
+        itenerary1 = new top.Itenerary();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+        jPanel3.add(inputView1, new java.awt.GridBagConstraints());
+
+        jTabbedPane2.addTab("Add Event", jPanel3);
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -53,14 +61,19 @@ public class Top extends javax.swing.JFrame {
         jTabbedPane2.addTab("Month", jPanel1);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        jPanel2.add(weekViewPanel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        jPanel2.add(itenerary1, gridBagConstraints);
+
         jTabbedPane2.addTab("Week", jPanel2);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/top/tenor (1).gif"))); // NOI18N
-        jPanel3.add(jLabel1);
-
-        jTabbedPane2.addTab(";)", jPanel3);
-
-        getContentPane().add(jTabbedPane2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jTabbedPane2, "card2");
         jTabbedPane2.getAccessibleContext().setAccessibleName("Month");
 
         jMenu1.setText("File");
@@ -111,7 +124,8 @@ public class Top extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private top.InputView inputView1;
+    private top.Itenerary itenerary1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -120,5 +134,6 @@ public class Top extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private top.MonthViewPanel monthViewPanel1;
+    private top.WeekViewPanel weekViewPanel1;
     // End of variables declaration//GEN-END:variables
 }
