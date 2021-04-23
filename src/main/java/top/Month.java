@@ -24,14 +24,10 @@ public class Month {
         when = when_;
         length = when.lengthOfMonth();
         offset = (when.atDay(1).getDayOfWeek().getValue()) % 7;
-        Days = new ArrayList<Day>(length);
-        for (int i = 1; i <= length; i++)
-        {
-            this.append(new Day(when.atDay(i)));
-        }
+        Days = new ArrayList<>(length);
     }
     
-    private void append(Day obj)
+    public void append(Day obj)
     {
         Days.add(obj);
     }
@@ -49,10 +45,5 @@ public class Month {
     public int getLength()
     {
         return length;
-    }
-    
-    public Day getDay(int dayNum)
-    {
-        return (Day) Days.get(dayNum);
     }
 }
