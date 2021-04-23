@@ -58,6 +58,7 @@ public class DayPanel extends javax.swing.JPanel {
         label1 = new java.awt.Label();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
 
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setLayout(new java.awt.GridLayout(3, 1));
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
