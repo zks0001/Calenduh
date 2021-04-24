@@ -33,7 +33,7 @@ public class MonthViewPanel extends javax.swing.JPanel {
 //        gridBagConstraints.weighty = 1.0;
 //        dayPanel2 = new top.DayPanel(LocalDate.now(), 4);
         //dayPanel2.setText("5", "15");
-        days = new ArrayList<>(35);
+        days = new ArrayList<>(42);
         weekday = new ArrayList<>(7);
         GridBagConstraints gbc = new java.awt.GridBagConstraints();
         gbc.gridx = 0;
@@ -51,7 +51,7 @@ public class MonthViewPanel extends javax.swing.JPanel {
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = java.awt.GridBagConstraints.BOTH;
-        for (int i = 0; i < 35; i++)
+        for (int i = 0; i < 42; i++)
         {
             if (i%7 == 0)
                 y++;
@@ -78,7 +78,7 @@ public class MonthViewPanel extends javax.swing.JPanel {
     protected void feed(Month obj)
     {
         obj.off();
-        for (int i = 0; i < 35; i++)
+        for (int i = 0; i < 42; i++)
             if (i < obj.off())
             {
                 days.get(i).setBackground(Color.gray);
@@ -89,8 +89,11 @@ public class MonthViewPanel extends javax.swing.JPanel {
                 days.get(i).setBackground(Color.gray);
                 days.get(i).setText("", "");
             }
-            else 
-                days.get(i).setText(Integer.toString((i-obj.off())+1), "test");
+            else
+            {
+                days.get(i).setBackground(Color.white);
+                days.get(i).setText(Integer.toString((i-obj.off())+1), Integer.toString(obj.getDay(i-obj.off()).arrSize));
+            }
     }
     
     private ArrayList<DayPanel> days;
