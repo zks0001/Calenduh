@@ -58,7 +58,39 @@ public class Itenerary extends javax.swing.JPanel {
         ));
     }
     
-    
+    public void reset(ArrayList<Activity> Today)
+    {
+        List<String> event_details = new ArrayList<String>();
+        
+        for (int i = 0; i < Today.size(); i++)
+        {
+            Activity temp = Today.get(i);
+            String tstring = temp.getStartTime().toString() + temp.getStopTime().toString();
+            
+            event_details.add(temp.getExtraInfo());
+            event_details.add(tstring);
+            
+        }
+        
+        
+        
+        
+        Object[][] table_list = new Object[Today.size()][Today.size()];
+        for (int r = 0; r < table_list.length; r++) 
+        {
+            for (int c = 0; c < table_list[r].length; c++)
+            {
+                table_list[r][c] = event_details.get(c);
+            }
+        }
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            table_list,
+            new String [] {
+                "Time", "Event"
+            }
+        ));
+    }
   
     
 
