@@ -5,7 +5,15 @@
  */
 package top;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.YearMonth;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -16,6 +24,43 @@ public class Top extends javax.swing.JFrame {
     /**
      * Creates new form Top
      */
+    
+    String filepath = "database.txt";
+    int dayOfMonth;
+    int monthOfYear;
+    
+    YearMonth january   = YearMonth.of(2021, 1); 
+    YearMonth february  = YearMonth.of(2021, 2); 
+    YearMonth march     = YearMonth.of(2021, 3); 
+    YearMonth april     = YearMonth.of(2021, 4); 
+    YearMonth may       = YearMonth.of(2021, 5); 
+    YearMonth june      = YearMonth.of(2021, 6); 
+    YearMonth july      = YearMonth.of(2021, 7); 
+    YearMonth august    = YearMonth.of(2021, 8); 
+    YearMonth september = YearMonth.of(2021, 9); 
+    YearMonth october   = YearMonth.of(2021, 10); 
+    YearMonth november  = YearMonth.of(2021, 11); 
+    YearMonth december  = YearMonth.of(2021, 12); 
+    
+    Month januaryMonth   = new Month(january);
+    Month februaryMonth  = new Month(february);
+    Month marchMonth     = new Month(march);
+    Month aprilMonth     = new Month(april);
+    Month mayMonth       = new Month(may);
+    Month juneMonth      = new Month(june);
+    Month julyMonth      = new Month(july);
+    Month augustMonth    = new Month(august);
+    Month septemberMonth = new Month(september);
+    Month octoberMonth   = new Month(october);
+    Month novemberMonth  = new Month(november);
+    Month decemberMonth  = new Month(december);
+    
+    Month[] months = new Month[]{ januaryMonth, februaryMonth, marchMonth,
+        aprilMonth, mayMonth, juneMonth, julyMonth, augustMonth, 
+        septemberMonth, octoberMonth, novemberMonth, decemberMonth };
+    
+ 
+    
     public Top() {
         initComponents();
         this.monthViewPanel1.feed(new Month(YearMonth.now()));
@@ -65,11 +110,7 @@ public class Top extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         jPanel2.add(weekViewPanel1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        jPanel2.add(itenerary1, gridBagConstraints);
+        jPanel2.add(itenerary1, new java.awt.GridBagConstraints());
 
         jTabbedPane2.addTab("Week", jPanel2);
 
@@ -121,6 +162,108 @@ public class Top extends javax.swing.JFrame {
             }
         });
         
+    }
+    
+    public void writeToFile() throws IOException
+    {
+            try {
+                FileWriter fo = new FileWriter(filepath);
+		FileOutputStream fileOut = new FileOutputStream(filepath);
+		ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+			
+		for (int i = 0; i < months.length; i++)
+		{
+                        for (int j = 0; j < months[i].length; j++)
+                        {
+                            Day dayTest = (Day) aprilMonth.getDay(j); 
+                            for (int k = 0; k < dayTest.activityList.size(); k++)
+                            {
+                                if (dayTest.hasContent)
+                                {
+                                    Activity curAct = (Activity) dayTest.activityList.get(j);
+                                    switch (curAct.extraInfo) {
+                                        case "school":
+                                                School x = (School) curAct;
+                                                objectOut.writeObject(x.getExtraInfo());
+                                                objectOut.writeObject(x);
+                                                break;
+                                        case "workout":
+                                                Workout w = (Workout) curAct;
+                                                objectOut.writeObject(w.getExtraInfo());
+                                                objectOut.writeObject(w);
+                                                break;
+                                        default:
+                                                objectOut.writeObject(curAct.getExtraInfo());
+                                                objectOut.writeObject(curAct);
+                                                break;
+                                }
+                            }
+                        }
+		}
+		
+		objectOut.close();
+		fo.close();
+            }
+            }
+            
+            catch (Exception ex) {
+		ex.printStackTrace();
+            }
+    }
+    
+    public void pullFromFile()
+    {
+        Object testIn;
+        boolean y = true;
+        try {
+            FileInputStream fileIn = new FileInputStream(filepath);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            
+            	while (fileIn.available() > 0)
+            	{
+				
+                    testIn = objectIn.readObject();
+                    if (testIn == null)
+                    {
+                        y = false;
+                    }
+                    String x = testIn.toString();
+		
+                    switch(x) {
+                        case "school":
+                            School sTest = new School();
+                            sTest = (School) objectIn.readObject();
+                            monthOfYear = sTest.getDate().getMonthValue();
+                            monthOfYear--;
+                            dayOfMonth = sTest.getDate().getDayOfMonth();
+                            months[monthOfYear].getDay(dayOfMonth).Add(sTest);
+                            break;
+			case "workout":
+                            Workout wTest = new Workout();
+                            wTest = (Workout) objectIn.readObject();
+                            monthOfYear = wTest.getDate().getMonthValue();
+                            monthOfYear--;
+                            dayOfMonth = wTest.getDate().getDayOfMonth();
+                            months[monthOfYear].getDay(dayOfMonth).Add(wTest);
+                            break;
+                        default:
+                            Activity aTest = new Activity();
+                            aTest = (Activity) objectIn.readObject();
+                            monthOfYear = aTest.getDate().getMonthValue();
+                            monthOfYear--;
+                            dayOfMonth = aTest.getDate().getDayOfMonth();
+                            months[monthOfYear].getDay(dayOfMonth).Add(aTest);
+                            break;
+                        }	
+				//System.out.println();
+                }
+                
+                objectIn.close();
+            }
+		
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

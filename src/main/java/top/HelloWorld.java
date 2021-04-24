@@ -51,16 +51,12 @@ public class HelloWorld {
 			FileOutputStream fileOut = new FileOutputStream(filepath);
 			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 			
-			//byte[] bytesArr;
 			for (int i = 0; i < acts.length; i++)
 			{
-				//bytesArr = acts[i].getExtraInfo().getBytes();
-				//fo.write(acts[i].getExtraInfo());
 				objectOut.writeObject(acts[i].getExtraInfo());
 				objectOut.writeObject(acts[i]);
 			}
 			
-			//objectOut.writeObject(s1);
 			objectOut.close();
 			fo.close();
 		}
