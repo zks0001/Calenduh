@@ -53,7 +53,7 @@ public class Itenerary extends javax.swing.JPanel {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             table_list,
             new String [] {
-                "Time", "Event"
+                "Event", "Time"
             }
         ));
     }
@@ -75,7 +75,7 @@ public class Itenerary extends javax.swing.JPanel {
         
         
         
-        Object[][] table_list = new Object[Today.size()][Today.size()];
+        Object[][] table_list = new Object[event_details.size()/2][2];
         for (int r = 0; r < table_list.length; r++) 
         {
             for (int c = 0; c < table_list[r].length; c++)
