@@ -373,6 +373,7 @@ public class Top extends javax.swing.JFrame {
         dayOfMonth = a.getDate().getDayOfMonth();
         months[monthOfYear].getDay(dayOfMonth-1).Add(a);
         monthViewPanel1.feed(months[monthOfYear]);
+        weekViewPanel1.feed(months[monthOfYear],  months[monthOfYear].getDay(dayOfMonth-1));
         itenerary1.reset(months[monthOfYear].getDay(dayOfMonth-1).activityList);
     }
     
