@@ -11,11 +11,9 @@ import java.util.Collections;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.time.YearMonth;
 
 public class HelloWorld {
-
-	
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -44,6 +42,10 @@ public class HelloWorld {
 		Activity acts[] = {a1, a2, a3, s1, s2, w1, w2, w3};
 		String filepath = "database.txt";
 		
+                int dayOfMonth;
+                YearMonth april = YearMonth.of(2021, 4); 
+                Month aprilMonth = new Month(april);
+                
 		try {
 			FileWriter fo = new FileWriter(filepath);
 			FileOutputStream fileOut = new FileOutputStream(filepath);
@@ -90,43 +92,22 @@ public class HelloWorld {
 					School sTest = new School();
 					sTest = (School) objectIn.readObject();
 					sorted.add(sTest);
-//					System.out.println(sTest.getTime());
-//					System.out.println(sTest.getDate());
-//					System.out.println(sTest.getLocation());
-//					System.out.println(sTest.getExtraInfo());
-//					System.out.println(sTest.getCourse());
-//					System.out.println(sTest.getGrade());
-//					System.out.println(sTest.getHours());
-//					
-//					String asgn[] = sTest.getAssignments();
-//					for (int i = 0; i < asgn.length; i++)
-//					{
-//						System.out.println(asgn[i]);
-//					}
+					dayOfMonth = sTest.getDate().getDayOfMonth();
+                                        aprilMonth.getDay(dayOfMonth).Add(sTest);
 					break;
 				case "workout":
 					Workout wTest = new Workout();
 					wTest = (Workout) objectIn.readObject();
 					sorted.add(wTest);
-//					System.out.println(wTest.getTime());
-//					System.out.println(wTest.getDate());
-//					System.out.println(wTest.getLocation());
-//					System.out.println(wTest.getExtraInfo());
-//					String wAsgn[] = wTest.getMuscles();
-//					for (int i = 0; i < wAsgn.length; i++)
-//					{
-//						System.out.println(wAsgn[i]);
-//					}
-//					System.out.println(wTest.getCalories());
-					break;
+                                        dayOfMonth = wTest.getDate().getDayOfMonth();
+                                        aprilMonth.getDay(dayOfMonth).Add(wTest);
+                                        break;
 				default:
 					Activity aTest = new Activity();
 					aTest = (Activity) objectIn.readObject();
 					sorted.add(aTest);
-//					System.out.println(aTest.getTime());
-//					System.out.println(aTest.getDate());
-//					System.out.println(aTest.getLocation());
-//					System.out.println(aTest.getExtraInfo());
+                                        dayOfMonth = aTest.getDate().getDayOfMonth();
+                                        aprilMonth.getDay(dayOfMonth).Add(aTest);
 					break;
 				}	
 				//System.out.println();
@@ -169,7 +150,7 @@ public class HelloWorld {
 			
 			return first.getTime().compareTo(second.getTime());
 		});
-		*/
+		
 		for (int i = 0; i < sorted.size(); i++)
 		{
 			switch (sorted.get(i).extraInfo) {
@@ -186,7 +167,32 @@ public class HelloWorld {
 				break;
 			}
 		}
-		
+		*/
+                
+                for (int i = 0; i < aprilMonth.length; i++)
+                {
+                    Day dayTest = (Day) aprilMonth.getDay(i); 
+                    for (int j = 0; j < dayTest.activityList.size(); j++)
+                    {
+                        if (dayTest.hasContent)
+                        {
+                            Activity curAct = (Activity) dayTest.activityList.get(j);
+                            switch (curAct.extraInfo) {
+                                case "school":
+                                        School x = (School) curAct;
+                                        printDaSchool(x);
+                                        break;
+                                case "workout":
+                                        Workout w = (Workout) curAct;
+                                        printDaWorkout(w);
+                                        break;
+                                default:
+                                        printDaActivity(curAct);
+                                        break;
+                            }
+			}
+                    }
+                }
 
 	}
 	
