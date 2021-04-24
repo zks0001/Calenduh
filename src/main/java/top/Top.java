@@ -175,7 +175,7 @@ public class Top extends javax.swing.JFrame {
 		{
                         for (int j = 0; j < months[i].length; j++)
                         {
-                            Day dayTest = (Day) aprilMonth.getDay(j); 
+                            Day dayTest = (Day) months[i].getDay(j); 
                             for (int k = 0; k < dayTest.activityList.size(); k++)
                             {
                                 if (dayTest.hasContent)
