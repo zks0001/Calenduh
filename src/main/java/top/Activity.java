@@ -46,19 +46,19 @@ public class Activity implements Serializable{
     	date = date_;
     	location = location_;
     	extraInfo = extraInfo_;
-        duration = duration_; //startTime.until(stopTime, MINUTES);
+        duration = startTime.until(stopTime, MINUTES);
         name = name_;
     }
     
-    public Activity(LocalTime startTime_, LocalDate date_, String location_, String extraInfo_, long duration_)
-    {
-    	startTime = startTime_;
-    	date = date_;
-    	location = location_;
-    	extraInfo = extraInfo_;
-        duration = duration_;
-        stopTime = startTime.plusMinutes(duration);
-    }
+//    public Activity(LocalTime startTime_, LocalDate date_, String location_, String extraInfo_, long duration_)
+//    {
+//    	startTime = startTime_;
+//    	date = date_;
+//    	location = location_;
+//    	extraInfo = extraInfo_;
+//        duration = duration_;
+//        stopTime = startTime.plusMinutes(duration);
+//    }
     
     public void setstopTime(LocalTime newTime)
     {
@@ -97,7 +97,7 @@ public class Activity implements Serializable{
     
     public LocalTime getStopTime()
     {
-        return startTime;
+        return stopTime;
     }
     
     public LocalDate getDate()

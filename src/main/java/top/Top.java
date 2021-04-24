@@ -288,7 +288,10 @@ public class Top extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         jPanel2.add(weekViewPanel1, gridBagConstraints);
-        jPanel2.add(itenerary1, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel2.add(itenerary1, gridBagConstraints);
 
         jTabbedPane2.addTab("Week", jPanel2);
 
@@ -320,6 +323,7 @@ public class Top extends javax.swing.JFrame {
         LocalTime timeStop = LocalTime.of(Integer.parseInt(jTextField3.getText()),Integer.parseInt(jTextField11.getText()));
         LocalDate temp = LocalDate.of(Integer.parseInt(jTextField4.getText()),Integer.parseInt(jTextField8.getText()),Integer.parseInt(jTextField9.getText()));
         this.activityCreate(new Activity(timeStart,timeStop,temp,jTextField5.getText(),jTextField7.getText(),jTextField1.getText(),Long.parseLong(jTextField6.getText())));
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -369,6 +373,7 @@ public class Top extends javax.swing.JFrame {
         dayOfMonth = a.getDate().getDayOfMonth();
         months[monthOfYear].getDay(dayOfMonth-1).Add(a);
         monthViewPanel1.feed(months[monthOfYear]);
+        itenerary1.reset(months[monthOfYear].getDay(dayOfMonth-1).activityList);
     }
     
     public void writeToFile() throws IOException

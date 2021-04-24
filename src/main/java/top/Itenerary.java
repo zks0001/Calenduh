@@ -65,7 +65,7 @@ public class Itenerary extends javax.swing.JPanel {
         for (int i = 0; i < Today.size(); i++)
         {
             Activity temp = Today.get(i);
-            String tstring = temp.getStartTime().toString() + temp.getStopTime().toString();
+            String tstring = temp.getStartTime().toString() + "-" + temp.getStopTime().toString();
             
             event_details.add(temp.getExtraInfo());
             event_details.add(tstring);
@@ -80,14 +80,14 @@ public class Itenerary extends javax.swing.JPanel {
         {
             for (int c = 0; c < table_list[r].length; c++)
             {
-                table_list[r][c] = event_details.get(c);
+                table_list[r][c] = event_details.get(c+r*2);
             }
         }
         
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             table_list,
             new String [] {
-                "Time", "Event"
+                "Event", "Time"
             }
         ));
     }
