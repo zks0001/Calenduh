@@ -108,6 +108,7 @@ public class Top extends javax.swing.JFrame {
         itenerary1 = new top.Itenerary();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        Exit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -299,6 +300,15 @@ public class Top extends javax.swing.JFrame {
         jTabbedPane2.getAccessibleContext().setAccessibleName("Month");
 
         jMenu1.setText("File");
+
+        Exit.setText("Exit");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Exit);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -329,6 +339,20 @@ public class Top extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        // TODO add your handling code here:
+    try
+    {
+            writeToFile();
+            System.exit(0);
+    }
+    catch(IOException e1)
+    {
+        
+    }
+ 
+    }//GEN-LAST:event_ExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -480,6 +504,7 @@ public class Top extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Exit;
     private javax.swing.Box.Filler filler1;
     private top.Itenerary itenerary1;
     private javax.swing.JButton jButton1;

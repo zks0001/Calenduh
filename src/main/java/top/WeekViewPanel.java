@@ -80,7 +80,7 @@ public class WeekViewPanel extends javax.swing.JPanel {
             else
             {
                 days.get(i).setBackground(Color.white);
-                days.get(i).setText(Integer.toString((i+set)), Integer.toString(obj.getDay(i+set).arrSize));
+                days.get(i).setText(Integer.toString((i+set)), Integer.toString(obj.getDay(i+set-1).arrSize));
             }
     }
     
